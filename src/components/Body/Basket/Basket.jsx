@@ -28,17 +28,23 @@ const Basket = ({
       cardValue={cardValue}
       nameCardValue={nameCardValue}
     />
-
-    {arrayItemBasket.map((item) => 
-      <ItemInBasket
-        item={item}
-        addQuanityProduct={addQuanityProduct}
-        deleteProduct={deleteProduct}
-      />
-    )}
-  <span>
-    {endPrice}
-  </span>
+    <div className="item-basket-wrapper">
+      {arrayItemBasket.map((item) => 
+        <ItemInBasket
+          item={item}
+          addQuanityProduct={addQuanityProduct}
+          deleteProduct={deleteProduct}
+        />
+      )}
+      <div className="sum-buy-wrapper">
+        <span>
+          {endPrice ? `Sum ${endPrice}$` : "Ничего не добавлено"}
+        </span>
+        <button className="button-close-order">
+          BUY
+        </button>
+      </div>
+    </div>
   </div>
 );
 

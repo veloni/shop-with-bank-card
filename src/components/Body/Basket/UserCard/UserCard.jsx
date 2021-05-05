@@ -11,8 +11,6 @@ const UserCard = ({
   cardValue,
   nameCardValue,
 }) => {
-
-  console.log(dataCard);
   return ( 
     <div className="card-main-wrapper">
       <div className="box-wrapper">

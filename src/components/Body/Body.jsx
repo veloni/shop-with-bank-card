@@ -8,6 +8,8 @@ import useOpenBusket from '../../hooks/useOpenBusket';
 import useBasketLogic from '../../hooks/useBasketLogic';
 import useApiCard from '../../hooks/useApiCard';
 
+import busketIcon from './img/busket.png';
+
 import './Body.scss';
 
 const Body = () => {
@@ -56,12 +58,11 @@ const Body = () => {
         nameCardValue={nameCardValue}
       />}
 
-      <div 
+      <img 
+        src={busketIcon}
         className="icon-busket"
         onClick={() => openCloseBusket()}
-      >
-        OpenBasket
-      </div>
+      />
     </div>
   );
 };

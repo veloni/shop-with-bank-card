@@ -1,18 +1,73 @@
 .basket-item-wrapper {
   height: auto;
-  width: 1000px;
-  height: 50px;
-  margin-bottom: 25px;
-  border: 1px solid black;
+  width: 90%;
+  height: 75px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  border: 2px solid black;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-left: 25px;
 }
 
 .quanity-price-wrapper {
   display: flex;
-  width: 150px;
+  width: 250px;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.busket-product-name {
+  padding-left: 25px;
+  font-size: 20px;
+}
+
+.product-price-closest {
+  padding-right: 25px;
+  font-size: 20px;
+} 
+
+.quanity-change-wrapper {
+  width: 500px;
+  font-size: 20px;
+  margin-right: 25px;
+}
+
+.item-quanity {
+  width: 85px;
+  border: 2px solid black;
+}
+
+.change-quanity {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.icon-add-quanity {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.icon-delete {
+  width: 20px;
+  margin-right: 25px;
+  cursor: pointer;
+}
+
+.sum-buy-wrapper {
+  width: 90%;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button-close-order {
+  height: 50px;
+  width: 150px;
+  font-size: 17px;
+  background-color: green;
+  border: 2px solid black;
+  box-shadow: 4px 4px rgba(0,0,0,1);
 }

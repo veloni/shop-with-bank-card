@@ -2,3 +2,12 @@
   height: auto;
   width: 1000px;
 }
+
+.item-basket-wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+  border: 2px solid black;
+}
+

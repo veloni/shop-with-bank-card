@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 const useOpenBusket = () => {
-  const [isOpenBusket, setIsOpenBusket] = useState(false);
+  const [isOpenBusket, setIsOpenBusket] = useState(true);
 
   const openCloseBusket = () => {
     setIsOpenBusket(!isOpenBusket);
