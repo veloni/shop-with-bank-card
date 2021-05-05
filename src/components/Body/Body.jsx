@@ -6,6 +6,7 @@ import Basket from './Basket/Basket';
 import useLoadData from '../../hooks/useLoadData';
 import useOpenBusket from '../../hooks/useOpenBusket';
 import useBasketLogic from '../../hooks/useBasketLogic';
+import useApiCard from '../../hooks/useApiCard';
 
 import './Body.scss';
 
@@ -25,6 +26,16 @@ const Body = () => {
     deleteProduct,
   ] = useBasketLogic();
 
+  const [
+    refInputCardNumber,
+    refCartHolderInput,
+    giveDataCard,
+    dataCard,
+    giveNameData,
+    cardValue,
+    nameCardValue,
+  ] = useApiCard();
+
   return (
     <div className="body-wrapper">
       {isOpenBusket && <ProductListing
@@ -36,6 +47,13 @@ const Body = () => {
         arrayItemBasket={arrayItemBasket}
         addQuanityProduct={addQuanityProduct}
         deleteProduct={deleteProduct}
+        refInputCardNumber={refInputCardNumber}
+        refCartHolderInput={refCartHolderInput}
+        giveDataCard={giveDataCard}
+        dataCard={dataCard}
+        giveNameData={giveNameData}
+        cardValue={cardValue}
+        nameCardValue={nameCardValue}
       />}
 
       <div 
