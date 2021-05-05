@@ -4,12 +4,19 @@ import ProductItem from './ProdcutItem/ProductItem';
 
 import './ProductListing.scss';
 
-const ProductListing = (dataProducts) => {
+const ProductListing = ({
+  dataProducts, 
+  addItemBasket,
+  deleteProduct,
+}) => {
+
   return(
   <main className="main-product-listing-wrapper">
-    {dataProducts.dataProduct.map((item) => (
+    {dataProducts.map((item) => (
       <ProductItem
         item={item}
+        addItemBasket={addItemBasket}
+        deleteProduct={deleteProduct}
       />
     ))}
   </main>
