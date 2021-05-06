@@ -1,5 +1,10 @@
 import React from 'react';
 
+import CardNumbers from './CardNumbers/CardNumbers';
+import CardInput from './CardInput/CardInput';
+
+import logoBank from './img/logo-bank.svg'
+
 import './UserCard.scss';
 
 const UserCard = ({
@@ -8,9 +13,13 @@ const UserCard = ({
   giveDataCard,
   giveNameData,
   dataCard,
-  cardValue,
   nameCardValue,
+  refCardValue,
+  cardValue,
+  renderExpires,
+  expiresValue,
 }) => {
+/*   console.log(dataCard); */
   return ( 
     <div className="card-main-wrapper">
       <div className="box-wrapper">
@@ -18,79 +27,51 @@ const UserCard = ({
           className="card-wrapper"
           style={dataCard && {backgroundColor: dataCard.bankColor}}  
         >
-          <img 
-            className="card-logo-bank"
-            src={dataCard ? dataCard.bankLogoSmallLightSvg : null} 
+          <div className="card-logo-brand-wrapper">
+            <img 
+              className="brand-logo"
+              alt=""
+              src={dataCard ? dataCard.brandLogoDarkPng : null} 
+            />
+            <img 
+              className="card-logo-bank"
+              alt=""
+              src={!!dataCard ? dataCard.bankLogoSmallLightSvg : logoBank} 
+            />
+          </div>
+          <CardNumbers
+            cardValue={cardValue}
           />
-            <div className="card-value-wrapper">
-              {cardValue}
-            </div>
-
           <div className="card-data-wrapper">
             <div className="card-holder-wrapper">
               <span className="card-holder-text">
                 Card Holder
               </span>
-              <span>
+              <span className="card-holder-name-user">
                 {nameCardValue}
               </span>
             </div>
-
             <div className="card-holder-wrapper-data">
               <span className="card-holder-text">
                 Expires
               </span>
-              <span>
-                {}
+              <span className="card-holder-name-user">
+                {expiresValue}
               </span>
             </div>
           </div>
         </div>
-
-        <div className="card-inputs-wrapper">
-          <div className="card-input-wrapper">
-            <span>
-              cardNumber
-            </span>
-            <input
-              defaultValue={null}
-              onChange={(e) => giveDataCard(e)}
-              ref={refInputCardNumber}
-            />
-          </div>
-     
-
-          <div className="card-input-wrapper">
-            <span>
-              cartHolder
-            </span>
-            <input
-              defaultValue={null}
-              onChange={(e) => giveNameData(e)}
-              ref={refCartHolderInput}
-            />
-          </div>
-        </div>
-
-      <div className="expires-input-wrapper">
-        <div className="expores-input">
-          Expires
-          <input
-            className="expieres-input"
-          />
-        </div>
-
-        <div className="expores-input">
-          CVV
-          <input
-            className="expieres-input"
-          />
-        </div>
-
-      </div>
+        <CardInput
+          refInputCardNumber={refInputCardNumber}
+          refCartHolderInput={refCartHolderInput}
+          giveDataCard={giveDataCard}
+          giveNameData={giveNameData}
+          refCardValue={refCardValue}
+          renderExpires={renderExpires}
+        />
       </div>
     </div>
-  )
+  );
 };
 
 export default UserCard;

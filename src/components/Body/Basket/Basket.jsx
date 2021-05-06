@@ -17,6 +17,9 @@ const Basket = ({
   giveNameData,
   cardValue,
   nameCardValue,
+  refCardValue,
+  renderExpires,
+  expiresValue,
 }) => (
   <div className="basket-main-wrapper">
     <UserCard
@@ -27,17 +30,21 @@ const Basket = ({
       giveNameData={giveNameData}
       cardValue={cardValue}
       nameCardValue={nameCardValue}
+      refCardValue={refCardValue}
+      renderExpires={renderExpires}
+      expiresValue={expiresValue}
     />
     <div className="item-basket-wrapper">
-      {arrayItemBasket.map((item) => 
+      {arrayItemBasket.map((item, index) => 
         <ItemInBasket
+          key={index}
           item={item}
           addQuanityProduct={addQuanityProduct}
           deleteProduct={deleteProduct}
         />
       )}
       <div className="sum-buy-wrapper">
-        <span>
+        <span className="sum-text">
           {endPrice ? `Sum ${endPrice}$` : "Ничего не добавлено"}
         </span>
         <button className="button-close-order">

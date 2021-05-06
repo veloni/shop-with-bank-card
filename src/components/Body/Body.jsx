@@ -36,6 +36,9 @@ const Body = () => {
     giveNameData,
     cardValue,
     nameCardValue,
+    refCardValue,
+    renderExpires,
+    expiresValue,
   ] = useApiCard();
 
   return (
@@ -56,9 +59,12 @@ const Body = () => {
         giveNameData={giveNameData}
         cardValue={cardValue}
         nameCardValue={nameCardValue}
+        refCardValue={refCardValue}
+        renderExpires={renderExpires}
+        expiresValue={expiresValue}
       />}
-
       <img 
+        alt="busket-icon"
         src={busketIcon}
         className="icon-busket"
         onClick={() => openCloseBusket()}

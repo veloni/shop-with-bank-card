@@ -8,19 +8,17 @@ const ProductListing = ({
   dataProducts, 
   addItemBasket,
   deleteProduct,
-}) => {
-
-  return(
+}) => (
   <main className="main-product-listing-wrapper">
-    {dataProducts.map((item) => (
+    {dataProducts.map((item, index) => (
       <ProductItem
+        key={index}
         item={item}
         addItemBasket={addItemBasket}
         deleteProduct={deleteProduct}
       />
     ))}
   </main>
-  )
-};
+);
 
 export default ProductListing;
