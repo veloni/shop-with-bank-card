@@ -5,34 +5,36 @@ import UserCard from './UserCard/UserCard'
 
 import './Busket.scss';
 
-const Basket = ({
+const Busket = ({
   endPrice,
   arrayItemBusket,
   addQuanityProduct,
   deleteProduct,
-  refInputCardNumber,
+  refCardNumberInput,
   refCartHolderInput,
   giveDataCard,
-  dataCard,
-  giveNameData,
-  cardValue,
-  nameCardValue,
+  dataCardApi,
+  renderName,
+  cardNumber,
+  holderCardValue,
   refCardValue,
   renderExpires,
-  expiresValue,
+  expiresCardValue,
+  saveCardNumber,
 }) => (
   <div className="busket-wrapper">
     <UserCard
-      refInputCardNumber={refInputCardNumber}
+      refCardNumberInput={refCardNumberInput}
       refCartHolderInput={refCartHolderInput}
       giveDataCard={giveDataCard}
-      dataCard={dataCard}
-      giveNameData={giveNameData}
-      cardValue={cardValue}
-      nameCardValue={nameCardValue}
+      dataCardApi={dataCardApi}
+      renderName={renderName}
+      cardNumber={cardNumber}
+      holderCardValue={holderCardValue}
       refCardValue={refCardValue}
       renderExpires={renderExpires}
-      expiresValue={expiresValue}
+      expiresCardValue={expiresCardValue}
+      saveCardNumber={saveCardNumber}
     />
     <div className="busket-items-wrapper">
       {arrayItemBusket.map((item, index) => 
@@ -55,4 +57,4 @@ const Basket = ({
   </div>
 );
 
-export default Basket;
+export default Busket;

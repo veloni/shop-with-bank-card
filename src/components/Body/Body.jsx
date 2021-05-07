@@ -29,16 +29,17 @@ const Body = () => {
   ] = useBusket();
 
   const [
-    refInputCardNumber,
+    refCardNumberInput,
     refCartHolderInput,
     giveDataCard,
-    dataCard,
-    giveNameData,
-    cardValue,
-    nameCardValue,
+    dataCardApi,
+    renderName,
+    cardNumber,
+    holderCardValue,
     refCardValue,
     renderExpires,
-    expiresValue,
+    expiresCardValue,
+    saveCardNumber,
   ] = useApiCard();
 
   return (
@@ -51,22 +52,23 @@ const Body = () => {
         endPrice={endPrice}
         arrayItemBusket={arrayItemBusket}
         addQuanityProduct={addQuanityProduct}
-        deleteProduct={deleteProduct}
-        refInputCardNumber={refInputCardNumber}
+        deleteProduct={deleteProduct} 
+        refCardNumberInput={refCardNumberInput}
         refCartHolderInput={refCartHolderInput}
         giveDataCard={giveDataCard}
-        dataCard={dataCard}
-        giveNameData={giveNameData}
-        cardValue={cardValue}
-        nameCardValue={nameCardValue}
+        dataCardApi={dataCardApi}
+        renderName={renderName}
+        cardNumber={cardNumber}
+        holderCardValue={holderCardValue}
         refCardValue={refCardValue}
         renderExpires={renderExpires}
-        expiresValue={expiresValue}
+        expiresCardValue={expiresCardValue}
+        saveCardNumber={saveCardNumber}
       />}
       <img 
         alt="icon busket"
         src={busketIcon}
-        className="icon-busket"
+        className="busket-icon"
         onClick={() => openCloseBusket()}
       />
     </div>

@@ -8,39 +8,40 @@ import logoBank from './img/logo-bank.svg'
 import './UserCard.scss';
 
 const UserCard = ({
-  refInputCardNumber,
+  refCardNumberInput,
   refCartHolderInput,
   giveDataCard,
-  giveNameData,
-  dataCard,
-  nameCardValue,
+  renderName,
+  dataCardApi,
+  holderCardValue,
   refCardValue,
-  cardValue,
+  cardNumber,
   renderExpires,
-  expiresValue,
+  expiresCardValue,
+  saveCardNumber,
 }) => {
-/*   console.log(dataCard); */
+/*   console.log(dataCardApi); */
   return ( 
     <div className="card-main-wrapper">
       <div className="card-box-wrapper">
         <div 
           className="card-wrapper"
-          style={dataCard && {backgroundColor: dataCard.bankColor}}  
+          style={dataCardApi && {backgroundColor: dataCardApi.bankColor}}  
         >
           <div className="card-logo-brand-wrapper">
             <img 
               className="card-brand-img"
               alt=""
-              src={dataCard ? dataCard.brandLogoDarkPng : null} 
+              src={dataCardApi ? dataCardApi.brandLogoDarkPng : null} 
             />
             <img 
               className="card-logo-img"
               alt=""
-              src={!!dataCard ? dataCard.bankLogoSmallLightSvg : logoBank} 
+              src={!!dataCardApi ? dataCardApi.bankLogoSmallLightSvg : logoBank} 
             />
           </div>
           <CardNumbers
-            cardValue={cardValue}
+            cardNumber={cardNumber}
           />
           <div className="card-data-wrapper">
             <div className="card-holder-wrapper">
@@ -48,7 +49,7 @@ const UserCard = ({
                 Card Holder
               </span>
               <span className="card-holder-name-user">
-                {nameCardValue}
+                {holderCardValue}
               </span>
             </div>
             <div className="card-holder-wrapper-data">
@@ -56,18 +57,21 @@ const UserCard = ({
                 Expires
               </span>
               <span className="card-holder-name-user">
-                {expiresValue}
+                {expiresCardValue}
               </span>
             </div>
           </div>
         </div>
         <CardInput
-          refInputCardNumber={refInputCardNumber}
+          refCardNumberInput={refCardNumberInput}
           refCartHolderInput={refCartHolderInput}
           giveDataCard={giveDataCard}
-          giveNameData={giveNameData}
+          renderName={renderName}
           refCardValue={refCardValue}
           renderExpires={renderExpires}
+          saveCardNumber={saveCardNumber}
+          holderCardValue={holderCardValue}
+          expiresCardValue={expiresCardValue}
         />
       </div>
     </div>

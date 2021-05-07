@@ -3,25 +3,29 @@ import React from 'react';
 import './CardInput.scss';
 
 const CardInput = ({
-  refInputCardNumber,
+  refCardNumberInput,
   refCartHolderInput,
   giveDataCard,
-  giveNameData,
+  renderName,
   refCardValue,
   renderExpires,
+  cardNumber,
+  saveCardNumber,
+  holderCardValue,
+  expiresCardValue,
 }) => (
   <div>
+
     <div className="card-input-number-holder-wrapper">
       <span>
         Card number
       </span>
       <input
         className="card-input-number-holder"
-        type="number"
-        max="9999999999999999"
-       /*  defaultValue={null} */
+        maxLength="17"
+        defaultValue={saveCardNumber} 
         onChange={(e) => giveDataCard(e)}
-        ref={refInputCardNumber}
+        ref={refCardNumberInput}
       />
     </div>
 
@@ -33,24 +37,23 @@ const CardInput = ({
         className="card-input-number-holder"
         type="text"
         maxLength="35"
-      /*   defaultValue={null} */
-        onChange={(e) => giveNameData(e)}
+        defaultValue={holderCardValue} 
+        onChange={(e) => renderName(e)}
         ref={refCartHolderInput}
       />
     </div>
 
     <div className="card-input-expores-cvv-wrapper">
-
       <div className="card-expires-cvv-inputs-box">
         Expires
         <input
           className="card-expires-cvv-input"
+          defaultValue={expiresCardValue} 
           onChange={(e) => renderExpires(e)}
           maxLength="5"
           placeholder="MM/YY"
         />
       </div>
-
       <div className="card-expires-cvv-inputs-box">
         CVV
         <input
@@ -59,6 +62,7 @@ const CardInput = ({
         />
       </div>
     </div>
+
   </div>
 );
 

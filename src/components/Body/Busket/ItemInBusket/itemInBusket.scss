@@ -1,5 +1,5 @@
 .busket-item-wrapper {
-  height: auto;
+ /*  height: auto; */
   width: 90%;
   height: 75px;
   margin-top: 30px;
@@ -14,7 +14,7 @@
 .busket-quanity-price-wrapper {
   display: flex;
   width: 350px;
-  flex-direction: row;
+/*   flex-direction: row; */
   align-items: center;
   justify-content: space-between;
 }
@@ -28,11 +28,6 @@
   width: 100px;
   font-size: 20px;
 } 
-
-.busket-quanity-change-wrapper {
-
-  
-}
 
 .busket-item-quanity {
   width: 85px;
@@ -49,14 +44,24 @@
 }
 
 .busket-item-icon-add-quanity {
-  font-size: 20px;
+  font-size: 27px;
   cursor: pointer;
 }
 
+.busket-item-icon-add-quanity:hover {
+  color: green;
+}
+
 .busket-item-icon-delete {
-  font-size: 25px;
+  color: red;
+  font-size: 27px;
   cursor: pointer;
 }
+
+.busket-item-icon-delete:hover {
+
+}
+
 
 .busket-sum-buy-wrapper {
   width: 90%;

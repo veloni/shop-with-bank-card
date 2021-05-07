@@ -24,4 +24,5 @@ const ProductItem = ({
     </button>
   </div>
 );
+
 export default ProductItem;
