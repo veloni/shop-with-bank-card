@@ -8,16 +8,16 @@ const ProductItem = ({
   item, 
   addItemBasket
 }) => (
-  <div className="product-wrapper">
+  <div className="product-item-wrapper">
     <img 
       alt="logo"
-      className="img-product" 
+      className="product-item-img" 
       src={logo}
     />
     <h2>{item.productName}</h2>
     <span>{item.productPrice}р</span>
     <button 
-      className="button-buy-item"
+      className="product-item-button-buy"
       onClick={() => addItemBasket(item)}
     >
       add to card

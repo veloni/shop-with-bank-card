@@ -1,0 +1,9 @@
+.card-numbers-wrapper {
+  display: flex;
+  align-items: center;
+  font-size: 45px;
+}
+
+.card-numbers-wrapper > * {
+  padding-left: 10px;
+}

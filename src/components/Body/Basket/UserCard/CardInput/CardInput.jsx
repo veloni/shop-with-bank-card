@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './CardInput.scss';
+
 const CardInput = ({
   refInputCardNumber,
   refCartHolderInput,
@@ -9,12 +11,12 @@ const CardInput = ({
   renderExpires,
 }) => (
   <div>
-    <div className="card-input-wrapper">
+    <div className="card-input-number-holder-wrapper">
       <span>
         Card number
       </span>
       <input
-        className="input-card"
+        className="card-input-number-holder"
         type="number"
         max="9999999999999999"
        /*  defaultValue={null} */
@@ -23,12 +25,12 @@ const CardInput = ({
       />
     </div>
 
-    <div className="card-input-wrapper">
+    <div className="card-input-number-holder-wrapper">
       <span>
         Cart holder
       </span>
       <input  
-        className="input-card"
+        className="card-input-number-holder"
         type="text"
         maxLength="35"
       /*   defaultValue={null} */
@@ -37,22 +39,23 @@ const CardInput = ({
       />
     </div>
 
-    <div className="expires-input-wrapper">
-      <div className="expores-input">
+    <div className="card-input-expores-cvv-wrapper">
+
+      <div className="card-expires-cvv-inputs-box">
         Expires
         <input
+          className="card-expires-cvv-input"
           onChange={(e) => renderExpires(e)}
           maxLength="5"
           placeholder="MM/YY"
-          className="expieres-input"
         />
       </div>
 
-      <div className="expores-input">
+      <div className="card-expires-cvv-inputs-box">
         CVV
         <input
+          className="card-expires-cvv-input"
           type="password"
-          className="expieres-input"
         />
       </div>
     </div>

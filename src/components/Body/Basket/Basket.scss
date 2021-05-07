@@ -1,9 +1,9 @@
-.basket-main-wrapper {
+.busket-wrapper {
   height: auto;
   width: 1000px;
 }
 
-.item-basket-wrapper {
+.busket-item-wrapper {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -12,7 +12,7 @@
   background-color: white;
 }
 
-.sum-text {
+.busket-sum-price-text {
   font-size: 22px;
 }
 

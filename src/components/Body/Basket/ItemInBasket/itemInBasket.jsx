@@ -7,7 +7,7 @@ const ItemInBasket = ({
   addQuanityProduct,
   deleteProduct,
 }) => (
-  item && <div className="basket-item-wrapper">
+  item && <div className="busket-item-wrapper">
     <span
       className="busket-product-name"
     >

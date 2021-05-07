@@ -21,7 +21,7 @@ const Basket = ({
   renderExpires,
   expiresValue,
 }) => (
-  <div className="basket-main-wrapper">
+  <div className="busket-wrapper">
     <UserCard
       refInputCardNumber={refInputCardNumber}
       refCartHolderInput={refCartHolderInput}
@@ -34,7 +34,7 @@ const Basket = ({
       renderExpires={renderExpires}
       expiresValue={expiresValue}
     />
-    <div className="item-basket-wrapper">
+    <div className="busket-item-wrapper">
       {arrayItemBasket.map((item, index) => 
         <ItemInBasket
           key={index}
@@ -43,11 +43,11 @@ const Basket = ({
           deleteProduct={deleteProduct}
         />
       )}
-      <div className="sum-buy-wrapper">
-        <span className="sum-text">
+      <div className="busket-sum-buy-wrapper">
+        <span className="busket-sum-price-text">
           {endPrice ? `Sum ${endPrice}$` : "Ничего не добавлено"}
         </span>
-        <button className="button-close-order">
+        <button className="busket-button-buyr">
           BUY
         </button>
       </div>

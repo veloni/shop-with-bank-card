@@ -22,19 +22,19 @@ const UserCard = ({
 /*   console.log(dataCard); */
   return ( 
     <div className="card-main-wrapper">
-      <div className="box-wrapper">
+      <div className="card-box-wrapper">
         <div 
           className="card-wrapper"
           style={dataCard && {backgroundColor: dataCard.bankColor}}  
         >
           <div className="card-logo-brand-wrapper">
             <img 
-              className="brand-logo"
+              className="card-brand-img"
               alt=""
               src={dataCard ? dataCard.brandLogoDarkPng : null} 
             />
             <img 
-              className="card-logo-bank"
+              className="card-logo-img"
               alt=""
               src={!!dataCard ? dataCard.bankLogoSmallLightSvg : logoBank} 
             />

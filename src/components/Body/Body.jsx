@@ -64,7 +64,7 @@ const Body = () => {
         expiresValue={expiresValue}
       />}
       <img 
-        alt="busket-icon"
+        alt="icon busket"
         src={busketIcon}
         className="icon-busket"
         onClick={() => openCloseBusket()}

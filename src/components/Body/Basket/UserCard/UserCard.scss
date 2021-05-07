@@ -5,23 +5,12 @@
   align-items: center;
 }
 
-.box-wrapper {
+.card-box-wrapper {
   width: 500px;
 }
 
-.box-wrapper > * {
+.card-box-wrapper > * {
   margin-bottom: 20px;
-}
-
-.card-value-wrapper {
-  display: flex;
-  align-items: center;
-  font-size: 25px;
-  font-size: 45px;
-}
-
-.card-value-wrapper > * {
-  padding-left: 10px;
 }
 
 .card-wrapper {
@@ -35,7 +24,7 @@
   justify-content: space-between;
 }
 
-.card-logo-bank {
+.card-logo-img {
   height: 50px;
 }
 
@@ -61,28 +50,10 @@
   text-align: right;
 }
 
-.card-inputs-wrapper {
+.card-input-number-holders-wrapper {
   display: flex;
   flex-direction: column;
   width: 100%;
-}
-
-.card-input-wrapper {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-}
-
-.expires-input-wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.expores-input {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
 }
 
 .cvv-input {
@@ -93,17 +64,6 @@
 
 .cvv-input {
   width: 50px;
-  border: 2px solid black;
-}
-
-.expieres-input {
-  width: 77px;
-  border: 2px solid black;
-  padding-left: 10px;
-}
-
-.input-card {
-  padding-left: 10px;
   border: 2px solid black;
 }
 

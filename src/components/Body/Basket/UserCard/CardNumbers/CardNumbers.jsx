@@ -1,7 +1,9 @@
 import React from 'react';
 
+import './CardNumbers.scss';
+
 const CardNumbers = ({ cardValue }) => ( 
-  <div className="card-value-wrapper">
+  <div className="card-numbers-wrapper">
     {cardValue.map((item, index) => (
       <span
         key={index}

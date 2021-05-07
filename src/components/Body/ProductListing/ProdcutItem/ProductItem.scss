@@ -1,4 +1,4 @@
-.product-wrapper {
+.product-item-wrapper {
   height: 250px;
   width: 250px;
   border: 3px solid black;
@@ -9,7 +9,7 @@
   justify-content: space-evenly;
 }
 
-.button-buy-item {
+.product-item-button-buy {
   height: 30px;
   width: 120px;
   background-color: red;
@@ -20,6 +20,6 @@
   cursor: pointer;
 }
 
-.img-product {
+.product-item-img {
   height: 100px;
 }
