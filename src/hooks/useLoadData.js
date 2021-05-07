@@ -3,7 +3,8 @@ import { useState } from 'react';
 import data from '../dataProduct/json';
 
 const useLoadData = () => {
-  const [dataProducts, setDataProducts] = useState(data);
+  const [dataProducts] = useState(data);
+  
   return [
     dataProducts,
   ];

@@ -1,11 +1,11 @@
 import React from 'react';
 
 import ProductListing from './ProductListing/ProductListing';
-import Basket from './Basket/Basket';
+import Busket from './Busket/Busket';
 
 import useLoadData from '../../hooks/useLoadData';
 import useOpenBusket from '../../hooks/useOpenBusket';
-import useBasketLogic from '../../hooks/useBasketLogic';
+import useBusket from '../../hooks/useBusket';
 import useApiCard from '../../hooks/useApiCard';
 
 import busketIcon from './img/busket.png';
@@ -23,10 +23,10 @@ const Body = () => {
   const [
     endPrice,
     addItemBasket,
-    arrayItemBasket,
+    arrayItemBusket,
     addQuanityProduct,
     deleteProduct,
-  ] = useBasketLogic();
+  ] = useBusket();
 
   const [
     refInputCardNumber,
@@ -47,9 +47,9 @@ const Body = () => {
         dataProducts={dataProducts}
         addItemBasket={addItemBasket}
       />}
-      {!isOpenBusket && <Basket
+      {!isOpenBusket && <Busket
         endPrice={endPrice}
-        arrayItemBasket={arrayItemBasket}
+        arrayItemBusket={arrayItemBusket}
         addQuanityProduct={addQuanityProduct}
         deleteProduct={deleteProduct}
         refInputCardNumber={refInputCardNumber}

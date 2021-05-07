@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './itemInBasket.scss';
+import './itemInBusket.scss';
 
 const ItemInBasket = ({
   item,
@@ -13,21 +13,21 @@ const ItemInBasket = ({
     >
       {item.productName} 
     </span>
-    <div className="quanity-price-wrapper">
-      <div className="quanity-change-wrapper">
-        <div className="change-quanity">
+    <div className="busket-quanity-price-wrapper">
+      <div className="busket-quanity-change-wrapper">
+        <div className="busket-item-change-quanity">
           <span
-            className="icon-add-quanity"
+            className="busket-item-icon-add-quanity"
             onClick={() => addQuanityProduct(item, -1)}
           > 
           - 
           </span>  
           <div 
-            className="item-quanity"> 
+            className="busket-item-quanity"> 
             {item.quanity} 
           </div>
           <span
-            className="icon-add-quanity"
+            className="busket-item-icon-add-quanity"
             onClick={() => addQuanityProduct(item, 1)}
           > 
           + 
@@ -35,12 +35,12 @@ const ItemInBasket = ({
         </div>
       </div>
         <span
-          className="icon-delete"
+          className="busket-item-icon-delete"
           onClick={() => deleteProduct(item)}
         >
           &times;
         </span>
-        <span className="product-price-closest">
+        <span className="busket-item-price-end">
           {`${item.productPrice * item.quanity} $`} 
         </span>
       </div>

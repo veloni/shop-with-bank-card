@@ -1,13 +1,13 @@
 import React from 'react';
 
-import ItemInBasket from './ItemInBasket/itemInBasket';
+import ItemInBasket from './ItemInBusket/itemInBusket';
 import UserCard from './UserCard/UserCard'
 
-import './Basket.scss';
+import './Busket.scss';
 
 const Basket = ({
   endPrice,
-  arrayItemBasket,
+  arrayItemBusket,
   addQuanityProduct,
   deleteProduct,
   refInputCardNumber,
@@ -34,8 +34,8 @@ const Basket = ({
       renderExpires={renderExpires}
       expiresValue={expiresValue}
     />
-    <div className="busket-item-wrapper">
-      {arrayItemBasket.map((item, index) => 
+    <div className="busket-items-wrapper">
+      {arrayItemBusket.map((item, index) => 
         <ItemInBasket
           key={index}
           item={item}
