@@ -20,7 +20,7 @@ const ItemInBasket = ({
             className="busket-item-icon-add-quanity"
             onClick={() => addQuanityProduct(item, -1)}
           > 
-          - 
+            - 
           </span>  
           <div 
             className="busket-item-quanity"> 
@@ -30,7 +30,7 @@ const ItemInBasket = ({
             className="busket-item-icon-add-quanity"
             onClick={() => addQuanityProduct(item, 1)}
           > 
-          + 
+            + 
           </span>
         </div>
       </div>

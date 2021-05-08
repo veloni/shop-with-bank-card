@@ -7,9 +7,7 @@ const useBusket = () => {
   const addItemBasket = (item) => {
     item.quanity = 1;
 
-    if (arrayItemBusket.includes(item)) { 
-      return;
-    }
+    if (arrayItemBusket.includes(item)) { return; }
 
     setArrayItemBusket([...arrayItemBusket, item]);
     setEndPrice(endPrice + item.productPrice * item.quanity);
