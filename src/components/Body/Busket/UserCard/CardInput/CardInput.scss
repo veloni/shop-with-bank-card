@@ -1,12 +1,7 @@
-.card-input-number-holder-wrapper {
+.cards-input-wrapper {
   display: flex;
   flex-direction: column;
   text-align: left;
-}
-
-.card-input-number-holder {
-  padding-left: 10px;
-  border: 2px solid black;
 }
 
 .card-input-expores-cvv-wrapper {
@@ -15,14 +10,19 @@
   justify-content: space-between;
 }
 
-.card-expires-cvv-inputs-box {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-}
-
 .card-expires-cvv-input {
   width: 77px;
   border: 2px solid black;
   padding-left: 10px;
+  outline: none;
+}
+
+.card-input-number-holder {
+  padding-left: 10px;
+  border: 2px solid black;
+  outline: none;
+}
+
+.card-input-incorect-value {
+  border: 2px solid red;
 }

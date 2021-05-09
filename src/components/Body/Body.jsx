@@ -35,11 +35,12 @@ const Body = () => {
     dataCardApi,
     renderName,
     cardNumber,
-    holderCardValue,
-    refCardValue,
+    holderCardValue,,
     renderExpires,
     expiresCardValue,
     saveCardNumber,
+    isHolderValueCorrect,
+    isExpiresrValueCorrect,
   ] = useApiCard();
 
   return (
@@ -60,10 +61,11 @@ const Body = () => {
         renderName={renderName}
         cardNumber={cardNumber}
         holderCardValue={holderCardValue}
-        refCardValue={refCardValue}
         renderExpires={renderExpires}
         expiresCardValue={expiresCardValue}
         saveCardNumber={saveCardNumber}
+        isHolderValueCorrect={isHolderValueCorrect}
+        isExpiresrValueCorrect={isExpiresrValueCorrect}
       />}
       <img 
         alt="icon busket"

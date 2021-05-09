@@ -1,5 +1,4 @@
 .busket-item-wrapper {
- /*  height: auto; */
   width: 90%;
   height: 75px;
   margin-top: 30px;
@@ -14,7 +13,6 @@
 .busket-quanity-price-wrapper {
   display: flex;
   width: 350px;
-/*   flex-direction: row; */
   align-items: center;
   justify-content: space-between;
 }
@@ -57,11 +55,6 @@
   font-size: 27px;
   cursor: pointer;
 }
-
-.busket-item-icon-delete:hover {
-
-}
-
 
 .busket-sum-buy-wrapper {
   width: 90%;

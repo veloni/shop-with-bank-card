@@ -1,9 +1,6 @@
 import React from 'react';
 
 import './ProductItem.scss';
-
-import logo from './img/1.png';
-
 const ProductItem = ({
   item, 
   addItemBasket
@@ -12,7 +9,7 @@ const ProductItem = ({
     <img 
       alt="logo"
       className="product-item-img" 
-      src={logo}
+      src={`./img/${item.img}`}
     />
     <h2>{item.productName}</h2>
     <span>{item.productPrice}р</span>

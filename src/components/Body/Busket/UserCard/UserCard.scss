@@ -1,8 +1,11 @@
 .card-main-wrapper {
-  height: 500px;
+  height: 350px;
+  width: 800px;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  border: 2px solid black;
+  margin-top: 180px;
 }
 
 .card-box-wrapper {
@@ -14,7 +17,8 @@
 }
 
 .card-wrapper {
-  padding: 10px;
+  position: fixed;
+  top: 2%;
   height: 230px;
   background-color: green;
   border-radius: 25px;

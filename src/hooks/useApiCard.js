@@ -5,7 +5,6 @@ import { useState, useRef } from 'react';
 const useApiCard = () => {
   const refCardNumberInput = useRef();
   const refCartHolderInput = useRef();
-  const refCardValue = useRef();/// need delete
 
   const [dataCardApi, setDataCardApi] = useState();
 
@@ -17,29 +16,32 @@ const useApiCard = () => {
   const [expiresCardValue, setExpiresCardValue] = useState();
   const [expiresCheckSlash, setExpiresCheckSlash] = useState(true);
 
-  const giveDataCard = (e) => {
-    if (e.target.value.length === 16) { 
-      return;
-    }
+  const [isHolderValueCorrect, setIsHolderValueCorrect] = useState(false);
+  const [isExpiresrValueCorrect, setIsExpiresValueCorrect] = useState(false);
 
-    renderCardNumber(e);
+  const giveDataCard = (value) => {
+    if (value.length > 16) { return; } 
 
-    const url = `https://api.cardinfo.online?input=${e.target.value}&apiKey=59ee27aad35c6ce4b937299a8aacd32b`; 
-            
+    renderCardNumber(value);
+
+    const url = `https://api.cardinfo.online?input=${value}&apiKey=59ee27aad35c6ce4b937299a8aacd32b`;
+
     axios.get(url).then((responce) => {
       setDataCardApi(responce.data);
     });
+
+    checkCorrectInputNumber(value);
   };
 
-  const renderCardNumber = (e) => {
-    setSaveCardNumber(e.target.value);
+  const renderCardNumber = (value) => {
+    setSaveCardNumber(value);
 
-    const arrayCardValue = [];
     let stepStringNumber = 0;
-
-    [...Array(4)].forEach(() => {
-      arrayCardValue.push(e.target.value.substring(stepStringNumber, stepStringNumber + 4));
+   
+    const arrayCardValue = [...Array(Math.ceil(value.length / 4))].map(() => {
+      const item = value.substring(stepStringNumber, stepStringNumber + 4)
       stepStringNumber += 4;
+      return item;
     });
 
     setCardNumber(arrayCardValue);
@@ -51,16 +53,47 @@ const useApiCard = () => {
       setExpiresCheckSlash(false);
     }
 
-    if (e.target.value.length === 2) { 
+    if (e.target.value.length === 2) {
       e.target.value = e.target.value.slice(-1);
       setExpiresCheckSlash(true);
     }
 
+    checkCorrectInputExpires(e.target.value);
+
     setExpiresCardValue(e.target.value);
   };
 
-  const renderName = (e) => {
-    setHolderCardValue(e.target.value);
+  const renderName = (value) => {
+    setHolderCardValue(value);
+    checkCorrectInputHolder(value);
+  };
+
+  const checkCorrectInputNumber = (value) => { 
+    if (value.length > 15) {
+      refCardNumberInput.current.type = "text";
+      refCardNumberInput.current.maxLenght = 15;
+    } else {
+      refCardNumberInput.current.type = "number";
+    }
+  };
+
+  const checkCorrectInputHolder = (value) => { 
+    const holderRegularText = /^[a-zA-Z ]+$/;  
+    const holderRegularSpace = /\w+\s+\w+\s+\w+/;
+     
+    const checkCorrectHolder = !holderRegularText.test(value) || holderRegularSpace.test(value);
+
+    checkCorrectHolder && setIsHolderValueCorrect(true);
+    !checkCorrectHolder && setIsHolderValueCorrect(false);
+    
+    value.length === 0 && setIsHolderValueCorrect(false);
+  };
+
+  const checkCorrectInputExpires = (value) => { 
+    const holderRegularText = /^[0-9/]*$/;
+   
+    !holderRegularText.test(value) && setIsExpiresValueCorrect(true);
+    holderRegularText.test(value) && setIsExpiresValueCorrect(false);
   };
 
   return [
@@ -70,11 +103,12 @@ const useApiCard = () => {
     dataCardApi,
     renderName,
     cardNumber,
-    holderCardValue,
-    refCardValue,
+    holderCardValue,,
     renderExpires,
     expiresCardValue,
     saveCardNumber,
+    isHolderValueCorrect,
+    isExpiresrValueCorrect
   ];
 };
 

@@ -17,10 +17,11 @@ const Busket = ({
   renderName,
   cardNumber,
   holderCardValue,
-  refCardValue,
   renderExpires,
   expiresCardValue,
   saveCardNumber,
+  isHolderValueCorrect,
+  isExpiresrValueCorrect,
 }) => (
   <div className="busket-wrapper">
     <UserCard
@@ -31,10 +32,11 @@ const Busket = ({
       renderName={renderName}
       cardNumber={cardNumber}
       holderCardValue={holderCardValue}
-      refCardValue={refCardValue}
       renderExpires={renderExpires}
       expiresCardValue={expiresCardValue}
       saveCardNumber={saveCardNumber}
+      isHolderValueCorrect={isHolderValueCorrect}
+      isExpiresrValueCorrect={isExpiresrValueCorrect}
     />
     <div className="busket-items-wrapper">
       {arrayItemBusket.map((item, index) => 
