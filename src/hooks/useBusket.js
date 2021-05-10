@@ -39,7 +39,6 @@ const useBusket = () => {
       }
       return item;
     });
-    console.log(arrayItemBusket);
     setArrayItemBusket([...newArray]);
   };
 

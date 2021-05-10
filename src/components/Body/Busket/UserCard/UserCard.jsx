@@ -3,8 +3,6 @@ import React from 'react';
 import CardNumbers from './CardNumbers/CardNumbers';
 import CardInput from './CardInput/CardInput';
 
-import logoBank from './img/logo-bank.svg'
-
 import './UserCard.scss';
 
 const UserCard = ({
@@ -35,6 +33,7 @@ const UserCard = ({
           />
           <img 
             className="card-logo-img"
+            alt=""
             src={dataCardApi && dataCardApi.bankLogoSmallLightSvg}  
           />
         </div>

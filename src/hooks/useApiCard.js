@@ -5,14 +5,14 @@ import { useState, useRef } from 'react';
 const useApiCard = () => {
   const refCardNumberInput = useRef();
 
-  const [dataCardApi, setDataCardApi] = useState();
+  const [dataCardApi, setDataCardApi] = useState([{}]);
 
   const [cardNumber, setCardNumber] = useState([]);
-  const [saveCardNumber, setSaveCardNumber] = useState();
+  const [saveCardNumber, setSaveCardNumber] = useState(null);
 
-  const [holderCardValue, setHolderCardValue] = useState();
+  const [holderCardValue, setHolderCardValue] = useState(null);
 
-  const [expiresCardValue, setExpiresCardValue] = useState();
+  const [expiresCardValue, setExpiresCardValue] = useState('');
   const [expiresCheckSlash, setExpiresCheckSlash] = useState(true);
 
   const [isNumberValueCorrect, setIsNumberValueCorrect] = useState(false);
@@ -26,9 +26,7 @@ const useApiCard = () => {
 
     const url = `https://api.cardinfo.online?input=${value}&apiKey=59ee27aad35c6ce4b937299a8aacd32b`;
 
-    axios.get(url).then((responce) => {
-      setDataCardApi(responce.data);
-    });
+    axios.get(url).then((res) => setDataCardApi(res.data));
 
     checkCorrectInputNumber(value);
   };
@@ -37,31 +35,34 @@ const useApiCard = () => {
     setSaveCardNumber(value);
 
     let stepStringNumber = 0;
-   
-    const arrayCardValue = [...Array(Math.ceil(value.length / 4))].map(() => {
-      const item = value.substring(stepStringNumber, stepStringNumber + 4);
-      stepStringNumber += 4;
+    const quantitySpan = 4;
+
+    const arrayCardValue = [...Array(Math.ceil(value.length / quantitySpan))].map(() => {
+      const item = value.substring(stepStringNumber, stepStringNumber + quantitySpan);
+      stepStringNumber += quantitySpan;
       return item;
     });
 
     setCardNumber(arrayCardValue);
   };
 
-  const renderExpires = (e) => {
-    if (e.target.value.length === 2 && expiresCheckSlash) {
-      e.target.value = `${e.target.value}/`;
-      setExpiresCheckSlash(false);
+  const renderExpires = (value) => {
+    let newValue = value; 
+
+    const checkValueLength = (value.length === 2);
+
+    if (checkValueLength) {
+      newValue = expiresCheckSlash ? giveValue(`${value}/`) : giveValue(value.slice(0, -1));
     }
 
-    if (e.target.value.length === 2) {
-      e.target.value = e.target.value.slice(-1);
-      setExpiresCheckSlash(true);
-    }
-
-    checkCorrectInputExpires(e.target.value);
-
-    setExpiresCardValue(e.target.value);
+    checkCorrectInputExpires(newValue); 
+    setExpiresCardValue(newValue);  
   };
+
+  const giveValue = (value) => {
+    setExpiresCheckSlash(!expiresCheckSlash);  
+    return value;
+  }
 
   const renderName = (value) => {
     setHolderCardValue(value);
@@ -69,32 +70,25 @@ const useApiCard = () => {
   };
 
   const checkCorrectInputNumber = (value) => { 
-    const holderRegularText = /^[0-9]*$/;
-
-    checRegularAddStyle(holderRegularText, setIsNumberValueCorrect, value);
+    const holderOnlyNumberPattern = /^[0-9]*$/;
+    checRegularAddStyle(holderOnlyNumberPattern, setIsNumberValueCorrect, value);
   };
 
   const checkCorrectInputHolder = (value) => { 
-    const holderRegularText = /^[a-zA-Z ]+$/;  
-    const holderRegularSpace = /\w+\s+\w+\s+\w+/;
-     
-    const checkCorrectHolder = !holderRegularText.test(value) || holderRegularSpace.test(value);
-
-    checkCorrectHolder && setIsHolderValueCorrect(true);
-    !checkCorrectHolder && setIsHolderValueCorrect(false);
+    const holderOnlyLatinPattern = /^[a-zA-Z ]+$/;  
+    const holderOnlyTwoWordsPattern = / \w+\s+\w+/;
+    const checkCorrectHolder = !holderOnlyLatinPattern.test(value) || holderOnlyTwoWordsPattern.test(value);
     
-    value.length === 0 && setIsHolderValueCorrect(false);
+    setIsHolderValueCorrect(checkCorrectHolder);
   };
 
   const checkCorrectInputExpires = (value) => { 
-    const holderRegularText = /^[0-9/]*$/;
-
-    checRegularAddStyle(holderRegularText, setIsExpiresValueCorrect, value);
+    const holderOnlyNumberSlashPattern = /^[0-9/]*$/;
+    checRegularAddStyle(holderOnlyNumberSlashPattern, setIsExpiresValueCorrect, value);
   };
 
   const checRegularAddStyle = (regular, setStyle, value) => {
-    !regular.test(value) && setStyle(true);
-    regular.test(value) && setStyle(false);
+    setStyle(!regular.test(value));
   }
 
   return [
@@ -103,7 +97,7 @@ const useApiCard = () => {
     dataCardApi,
     renderName,
     cardNumber,
-    holderCardValue,,
+    holderCardValue,
     renderExpires,
     expiresCardValue,
     saveCardNumber,

@@ -34,7 +34,7 @@ const Body = () => {
     dataCardApi,
     renderName,
     cardNumber,
-    holderCardValue,,
+    holderCardValue,
     renderExpires,
     expiresCardValue,
     saveCardNumber,

@@ -47,8 +47,8 @@ const CardInput = ({
         Expires
         <input
           className={isExpiresrValueCorrect ? "card-input-incorect-value card-expires-cvv-input" : 'card-expires-cvv-input'}
-          defaultValue={expiresCardValue} 
-          onChange={(e) => renderExpires(e)}
+          value={expiresCardValue} 
+          onChange={(e) => renderExpires(e.target.value)}
           maxLength="5"
           placeholder="MM/YY"
         />
