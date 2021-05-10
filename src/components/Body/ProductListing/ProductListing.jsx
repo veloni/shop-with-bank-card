@@ -6,7 +6,7 @@ import './ProductListing.scss';
 
 const ProductListing = ({
   dataProducts, 
-  addItemBasket,
+  addItemInBasket,
   deleteProduct,
 }) => (
   <main className="main-product-listing-wrapper">
@@ -14,7 +14,7 @@ const ProductListing = ({
       <ProductItem
         key={index}
         item={item}
-        addItemBasket={addItemBasket}
+        addItemInBasket={addItemInBasket}
         deleteProduct={deleteProduct}
       />
     ))}

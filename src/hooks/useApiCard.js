@@ -4,7 +4,6 @@ import { useState, useRef } from 'react';
 
 const useApiCard = () => {
   const refCardNumberInput = useRef();
-  const refCartHolderInput = useRef();
 
   const [dataCardApi, setDataCardApi] = useState();
 
@@ -16,9 +15,10 @@ const useApiCard = () => {
   const [expiresCardValue, setExpiresCardValue] = useState();
   const [expiresCheckSlash, setExpiresCheckSlash] = useState(true);
 
+  const [isNumberValueCorrect, setIsNumberValueCorrect] = useState(false);
   const [isHolderValueCorrect, setIsHolderValueCorrect] = useState(false);
   const [isExpiresrValueCorrect, setIsExpiresValueCorrect] = useState(false);
-
+  
   const giveDataCard = (value) => {
     if (value.length > 16) { return; } 
 
@@ -39,7 +39,7 @@ const useApiCard = () => {
     let stepStringNumber = 0;
    
     const arrayCardValue = [...Array(Math.ceil(value.length / 4))].map(() => {
-      const item = value.substring(stepStringNumber, stepStringNumber + 4)
+      const item = value.substring(stepStringNumber, stepStringNumber + 4);
       stepStringNumber += 4;
       return item;
     });
@@ -69,12 +69,9 @@ const useApiCard = () => {
   };
 
   const checkCorrectInputNumber = (value) => { 
-    if (value.length > 15) {
-      refCardNumberInput.current.type = "text";
-      refCardNumberInput.current.maxLenght = 15;
-    } else {
-      refCardNumberInput.current.type = "number";
-    }
+    const holderRegularText = /^[0-9]*$/;
+
+    checRegularAddStyle(holderRegularText, setIsNumberValueCorrect, value);
   };
 
   const checkCorrectInputHolder = (value) => { 
@@ -91,14 +88,17 @@ const useApiCard = () => {
 
   const checkCorrectInputExpires = (value) => { 
     const holderRegularText = /^[0-9/]*$/;
-   
-    !holderRegularText.test(value) && setIsExpiresValueCorrect(true);
-    holderRegularText.test(value) && setIsExpiresValueCorrect(false);
+
+    checRegularAddStyle(holderRegularText, setIsExpiresValueCorrect, value);
   };
+
+  const checRegularAddStyle = (regular, setStyle, value) => {
+    !regular.test(value) && setStyle(true);
+    regular.test(value) && setStyle(false);
+  }
 
   return [
     refCardNumberInput,
-    refCartHolderInput,
     giveDataCard,
     dataCardApi,
     renderName,
@@ -108,7 +108,8 @@ const useApiCard = () => {
     expiresCardValue,
     saveCardNumber,
     isHolderValueCorrect,
-    isExpiresrValueCorrect
+    isExpiresrValueCorrect,
+    isNumberValueCorrect,
   ];
 };
 

@@ -4,7 +4,6 @@ import './CardInput.scss';
 
 const CardInput = ({
   refCardNumberInput,
-  refCartHolderInput,
   giveDataCard,
   renderName,
   renderExpires,
@@ -13,6 +12,7 @@ const CardInput = ({
   expiresCardValue,
   isHolderValueCorrect,
   isExpiresrValueCorrect,
+  isNumberValueCorrect,
 }) => (
   <div>
     <div className="cards-input-wrapper">
@@ -20,9 +20,9 @@ const CardInput = ({
         Card number
       </span>
       <input
-        className="card-input-number-holder"
-        type="number"
-        maxLength="16" 
+        className={isNumberValueCorrect ? "card-input-incorect-value card-input-number-holder" : "card-input-number-holder"}
+        type="text"
+        maxLength="16"
         defaultValue={saveCardNumber} 
         onChange={(e) => giveDataCard(e.target.value)}
         ref={refCardNumberInput}
@@ -39,7 +39,6 @@ const CardInput = ({
         maxLength="35"
         defaultValue={holderCardValue} 
         onChange={(e) => renderName(e.target.value)}
-        ref={refCartHolderInput}
       />
     </div>
 

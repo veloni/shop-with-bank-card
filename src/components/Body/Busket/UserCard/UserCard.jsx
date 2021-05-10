@@ -9,7 +9,6 @@ import './UserCard.scss';
 
 const UserCard = ({
   refCardNumberInput,
-  refCartHolderInput,
   giveDataCard,
   dataCardApi,
   renderName,
@@ -20,7 +19,8 @@ const UserCard = ({
   saveCardNumber,
   isHolderValueCorrect,
   isExpiresrValueCorrect,
-}) => ( 
+  isNumberValueCorrect,
+}) => (
   <div className="card-main-wrapper">
     <div className="card-box-wrapper">
       <div 
@@ -31,12 +31,11 @@ const UserCard = ({
           <img 
             className="card-brand-img"
             alt=""
-            src={dataCardApi ? dataCardApi.brandLogoDarkPng : null} 
+            src={dataCardApi && dataCardApi.brandLogoDarkPng} 
           />
           <img 
             className="card-logo-img"
-            alt=""
-            src={!!dataCardApi ? dataCardApi.bankLogoSmallLightSvg : logoBank} 
+            src={dataCardApi && dataCardApi.bankLogoSmallLightSvg}  
           />
         </div>
         <CardNumbers
@@ -63,7 +62,6 @@ const UserCard = ({
       </div>
       <CardInput
         refCardNumberInput={refCardNumberInput}
-        refCartHolderInput={refCartHolderInput}
         giveDataCard={giveDataCard}
         renderName={renderName}
         renderExpires={renderExpires}
@@ -72,10 +70,10 @@ const UserCard = ({
         expiresCardValue={expiresCardValue}
         isHolderValueCorrect={isHolderValueCorrect}
         isExpiresrValueCorrect={isExpiresrValueCorrect}
+        isNumberValueCorrect={isNumberValueCorrect}
       />
     </div>
   </div>
 );
-
 
 export default UserCard;

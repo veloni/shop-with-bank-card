@@ -4,7 +4,7 @@ import './itemInBusket.scss';
 
 const ItemInBasket = ({
   item,
-  addQuanityProduct,
+  changeQuanityProduct,
   deleteProduct,
 }) => (
   item && <div className="busket-item-wrapper">
@@ -18,7 +18,7 @@ const ItemInBasket = ({
         <div className="busket-item-change-quanity">
           <span
             className="busket-item-icon-add-quanity"
-            onClick={() => addQuanityProduct(item, -1)}
+            onClick={() => changeQuanityProduct(item, -1)}
           > 
             - 
           </span>  
@@ -28,7 +28,7 @@ const ItemInBasket = ({
           </div>
           <span
             className="busket-item-icon-add-quanity"
-            onClick={() => addQuanityProduct(item, 1)}
+            onClick={() => changeQuanityProduct(item, 1)}
           > 
             + 
           </span>

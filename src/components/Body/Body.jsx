@@ -22,15 +22,14 @@ const Body = () => {
 
   const [
     endPrice,
-    addItemBasket,
+    addItemInBasket,
     arrayItemBusket,
-    addQuanityProduct,
+    changeQuanityProduct,
     deleteProduct,
   ] = useBusket();
 
   const [
     refCardNumberInput,
-    refCartHolderInput,
     giveDataCard,
     dataCardApi,
     renderName,
@@ -41,21 +40,21 @@ const Body = () => {
     saveCardNumber,
     isHolderValueCorrect,
     isExpiresrValueCorrect,
+    isNumberValueCorrect,
   ] = useApiCard();
 
   return (
     <div className="body-wrapper">
       {isOpenBusket && <ProductListing
         dataProducts={dataProducts}
-        addItemBasket={addItemBasket}
+        addItemInBasket={addItemInBasket}
       />}
       {!isOpenBusket && <Busket
         endPrice={endPrice}
         arrayItemBusket={arrayItemBusket}
-        addQuanityProduct={addQuanityProduct}
+        changeQuanityProduct={changeQuanityProduct}
         deleteProduct={deleteProduct} 
         refCardNumberInput={refCardNumberInput}
-        refCartHolderInput={refCartHolderInput}
         giveDataCard={giveDataCard}
         dataCardApi={dataCardApi}
         renderName={renderName}
@@ -66,6 +65,7 @@ const Body = () => {
         saveCardNumber={saveCardNumber}
         isHolderValueCorrect={isHolderValueCorrect}
         isExpiresrValueCorrect={isExpiresrValueCorrect}
+        isNumberValueCorrect={isNumberValueCorrect}
       />}
       <img 
         alt="icon busket"

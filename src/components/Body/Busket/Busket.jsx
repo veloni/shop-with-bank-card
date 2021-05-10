@@ -8,10 +8,9 @@ import './Busket.scss';
 const Busket = ({
   endPrice,
   arrayItemBusket,
-  addQuanityProduct,
+  changeQuanityProduct,
   deleteProduct,
   refCardNumberInput,
-  refCartHolderInput,
   giveDataCard,
   dataCardApi,
   renderName,
@@ -22,11 +21,11 @@ const Busket = ({
   saveCardNumber,
   isHolderValueCorrect,
   isExpiresrValueCorrect,
+  isNumberValueCorrect,
 }) => (
   <div className="busket-wrapper">
     <UserCard
       refCardNumberInput={refCardNumberInput}
-      refCartHolderInput={refCartHolderInput}
       giveDataCard={giveDataCard}
       dataCardApi={dataCardApi}
       renderName={renderName}
@@ -37,13 +36,14 @@ const Busket = ({
       saveCardNumber={saveCardNumber}
       isHolderValueCorrect={isHolderValueCorrect}
       isExpiresrValueCorrect={isExpiresrValueCorrect}
+      isNumberValueCorrect={isNumberValueCorrect}
     />
     <div className="busket-items-wrapper">
       {arrayItemBusket.map((item, index) => 
         <ItemInBasket
           key={index}
           item={item}
-          addQuanityProduct={addQuanityProduct}
+          changeQuanityProduct={changeQuanityProduct}
           deleteProduct={deleteProduct}
         />
       )}

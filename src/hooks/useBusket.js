@@ -4,7 +4,7 @@ const useBusket = () => {
   const [arrayItemBusket, setArrayItemBusket] = useState([]);
   const [endPrice, setEndPrice] = useState(0);
 
-  const addItemBasket = (item) => {
+  const addItemInBasket = (item) => {
     item.quanity = 1;
 
     if (arrayItemBusket.includes(item)) { return; }
@@ -13,7 +13,7 @@ const useBusket = () => {
     setEndPrice(endPrice + item.productPrice * item.quanity);
   };
 
-  const addQuanityProduct = (element, sign) => {
+  const changeQuanityProduct = (element, sign) => {
     const newArray = arrayItemBusket.map((item) => {
       if (item.quanity === 1 && sign === -1) { 
         return item;
@@ -39,15 +39,15 @@ const useBusket = () => {
       }
       return item;
     });
-
+    console.log(arrayItemBusket);
     setArrayItemBusket([...newArray]);
   };
 
   return [
     endPrice,
-    addItemBasket,
+    addItemInBasket,
     arrayItemBusket,
-    addQuanityProduct,
+    changeQuanityProduct,
     deleteProduct,
   ];
 };

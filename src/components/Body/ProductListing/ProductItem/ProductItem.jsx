@@ -3,7 +3,7 @@ import React from 'react';
 import './ProductItem.scss';
 const ProductItem = ({
   item, 
-  addItemBasket
+  addItemInBasket
 }) => (
   <div className="product-item-wrapper">
     <img 
@@ -12,10 +12,10 @@ const ProductItem = ({
       src={`./img/${item.img}`}
     />
     <h2>{item.productName}</h2>
-    <span>{item.productPrice}р</span>
+    <span>{item.productPrice}$</span>
     <button 
       className="product-item-button-buy"
-      onClick={() => addItemBasket(item)}
+      onClick={() => addItemInBasket(item)}
     >
       add to card
     </button>
