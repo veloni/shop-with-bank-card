@@ -1,5 +1,7 @@
 import React from 'react';
 
+/* import PropTypes from 'prop-types'; */
+
 import ProductListing from './ProductListing/ProductListing';
 import Busket from './Busket/Busket';
 
@@ -15,7 +17,7 @@ import './Body.scss';
 const Body = () => {
   const [dataProducts] = useLoadData();
 
-  const [    
+  const [
     isOpenBusket,
     openCloseBusket,
   ] = useOpenBusket();

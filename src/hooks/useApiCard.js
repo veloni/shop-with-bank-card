@@ -5,11 +5,11 @@ import { useState, useRef } from 'react';
 const useApiCard = () => {
   const refCardNumberInput = useRef();
 
-  const [dataCardApi, setDataCardApi] = useState([{}]);
+  const [dataCardApi, setDataCardApi] = useState({});
 
   const [cardNumber, setCardNumber] = useState([]);
 
-  const [holderCardValue, setHolderCardValue] = useState(null);
+  const [holderCardValue, setHolderCardValue] = useState('');
 
   const [expiresCardValue, setExpiresCardValue] = useState('');
   const [expiresCheckSlash, setExpiresCheckSlash] = useState(true);
@@ -17,9 +17,9 @@ const useApiCard = () => {
   const [isNumberValueCorrect, setIsNumberValueCorrect] = useState(false);
   const [isHolderValueCorrect, setIsHolderValueCorrect] = useState(false);
   const [isExpiresValueCorrect, setIsExpiresValueCorrect] = useState(false);
-  
+   
   const giveDataCard = (value) => {
-    if (value.length > 16) { return; } 
+    if (value.length > 16) {return;}
 
     renderCardNumber(value);
 
@@ -45,21 +45,24 @@ const useApiCard = () => {
   };
 
   const renderExpires = (value) => {
-    let newValue = value; 
+    let newValue = value;
 
     const checkValueLength = (value.length === 2);
 
     if (checkValueLength) {
-      newValue = expiresCheckSlash ? giveValue(`${value}/`) : giveValue(value.slice(0, -1));
+      newValue = giveValueExpires(value);
     }
 
-    checkCorrectInputExpires(newValue); 
-    setExpiresCardValue(newValue);  
+    checkCorrectInputExpires(newValue);
+    setExpiresCardValue(newValue);
   };
 
-  const giveValue = (value) => {
-    setExpiresCheckSlash(!expiresCheckSlash);  
-    return value;
+  const giveValueExpires = (value) => {
+    setExpiresCheckSlash(!expiresCheckSlash);
+
+    const resultValue = expiresCheckSlash ? `${value}/` : value.slice(0, -1);
+
+    return resultValue;
   }
 
   const renderName = (value) => {
@@ -67,20 +70,20 @@ const useApiCard = () => {
     checkCorrectInputHolder(value);
   };
 
-  const checkCorrectInputNumber = (value) => { 
+  const checkCorrectInputNumber = (value) => {
     const holderOnlyNumberPattern = /^[0-9]*$/;
     checkRegularAddStyle(holderOnlyNumberPattern, setIsNumberValueCorrect, value);
   };
 
-  const checkCorrectInputHolder = (value) => { 
-    const holderOnlyLatinPattern = /^[a-zA-Z ]+$/;  
-    const holderOnlyTwoWordsPattern = / \w+\s+\w+/;
+  const checkCorrectInputHolder = (value) => {
+    const holderOnlyLatinPattern = /^[a-zA-Z ]+$/;
+    const holderOnlyTwoWordsPattern = /\w+\s+\w+/;
     const checkCorrectHolder = !holderOnlyLatinPattern.test(value) || holderOnlyTwoWordsPattern.test(value);
     
     setIsHolderValueCorrect(checkCorrectHolder);
   };
 
-  const checkCorrectInputExpires = (value) => { 
+  const checkCorrectInputExpires = (value) => {
     const holderOnlyNumberSlashPattern = /^[0-9/]*$/;
     checkRegularAddStyle(holderOnlyNumberSlashPattern, setIsExpiresValueCorrect, value);
   };

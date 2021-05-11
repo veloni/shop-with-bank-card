@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import CardNumbers from './CardNumbers/CardNumbers';
 import CardInput from './CardInput/CardInput';
@@ -73,5 +74,24 @@ const UserCard = ({
     </div>
   </div>
 );
+
+UserCard.propTypes = {
+  holderCardValue: PropTypes.string.isRequired,
+  expiresCardValue: PropTypes.string.isRequired,
+
+  isHolderValueCorrect: PropTypes.bool.isRequired,
+  isExpiresValueCorrect: PropTypes.bool.isRequired,
+  isNumberValueCorrect: PropTypes.bool.isRequired,
+
+  dataCardApi: PropTypes.object.isRequired,
+  
+  cardNumber: PropTypes.array.isRequired,
+
+  refCardNumberInput: PropTypes.any.isRequired,
+
+  giveDataCard: PropTypes.func.isRequired,
+  renderName: PropTypes.func.isRequired,
+  renderExpires: PropTypes.func.isRequired,
+};
 
 export default UserCard;

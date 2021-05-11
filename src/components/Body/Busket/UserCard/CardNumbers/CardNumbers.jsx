@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './CardNumbers.scss';
 
@@ -15,5 +16,9 @@ const CardNumbers = ({
     ))}
   </div>
 );
+
+CardNumbers.propTypes = {
+  cardNumber: PropTypes.array.isRequired,
+};
 
 export default CardNumbers;

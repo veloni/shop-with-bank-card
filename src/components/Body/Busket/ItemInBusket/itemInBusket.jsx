@@ -1,13 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './itemInBusket.scss';
 
-const ItemInBasket = ({
+const ItemInBusket = ({
   item,
   changeQuanityProduct,
   deleteProduct,
 }) => (
-  item && <div className="busket-item-wrapper">
+
+  !item.deleted && <div className="busket-item-wrapper">
     <span
       className="busket-product-name"
     >
@@ -47,4 +49,11 @@ const ItemInBasket = ({
   </div>
 );
 
-export default ItemInBasket;
+ItemInBusket.propTypes = {
+  item: PropTypes.object.isRequired,
+
+  changeQuanityProduct: PropTypes.func.isRequired,
+  deleteProduct: PropTypes.func.isRequired,
+};
+
+export default ItemInBusket;

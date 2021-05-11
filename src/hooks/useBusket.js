@@ -5,9 +5,12 @@ const useBusket = () => {
   const [endPrice, setEndPrice] = useState(0);
 
   const addItemInBasket = (item) => {
-    item.quanity = 1;
+    item.deleted && setEndPrice(endPrice + item.productPrice * item.quanity);
 
-    if (arrayItemBusket.includes(item)) { return; }
+    item.quanity = 1;
+    item.deleted = false;
+
+    if (arrayItemBusket.includes(item)) {return;}
 
     setArrayItemBusket([...arrayItemBusket, item]);
     setEndPrice(endPrice + item.productPrice * item.quanity);
@@ -15,7 +18,7 @@ const useBusket = () => {
 
   const changeQuanityProduct = (element, sign) => {
     const newArray = arrayItemBusket.map((item) => {
-      if (item.quanity === 1 && sign === -1) { 
+      if (item.quanity === 1 && sign === -1) {
         return item;
       }
       
@@ -35,7 +38,8 @@ const useBusket = () => {
     const newArray = arrayItemBusket.map((item) => {
       if (element.id === item.id) {
         setEndPrice(endPrice - item.productPrice * item.quanity);
-        return '';
+        item.deleted = true;
+        return item;
       }
       return item;
     });
