@@ -8,7 +8,6 @@ const useApiCard = () => {
   const [dataCardApi, setDataCardApi] = useState([{}]);
 
   const [cardNumber, setCardNumber] = useState([]);
-  const [saveCardNumber, setSaveCardNumber] = useState(null);
 
   const [holderCardValue, setHolderCardValue] = useState(null);
 
@@ -17,7 +16,7 @@ const useApiCard = () => {
 
   const [isNumberValueCorrect, setIsNumberValueCorrect] = useState(false);
   const [isHolderValueCorrect, setIsHolderValueCorrect] = useState(false);
-  const [isExpiresrValueCorrect, setIsExpiresValueCorrect] = useState(false);
+  const [isExpiresValueCorrect, setIsExpiresValueCorrect] = useState(false);
   
   const giveDataCard = (value) => {
     if (value.length > 16) { return; } 
@@ -32,13 +31,12 @@ const useApiCard = () => {
   };
 
   const renderCardNumber = (value) => {
-    setSaveCardNumber(value);
-
     let stepStringNumber = 0;
     const quantitySpan = 4;
-
-    const arrayCardValue = [...Array(Math.ceil(value.length / quantitySpan))].map(() => {
-      const item = value.substring(stepStringNumber, stepStringNumber + quantitySpan);
+    const everyFour = Math.ceil(value.length / quantitySpan);
+ 
+    const arrayCardValue = [...Array(everyFour)].map(() => {
+      const item = value.substring(stepStringNumber, quantitySpan + stepStringNumber);
       stepStringNumber += quantitySpan;
       return item;
     });
@@ -71,7 +69,7 @@ const useApiCard = () => {
 
   const checkCorrectInputNumber = (value) => { 
     const holderOnlyNumberPattern = /^[0-9]*$/;
-    checRegularAddStyle(holderOnlyNumberPattern, setIsNumberValueCorrect, value);
+    checkRegularAddStyle(holderOnlyNumberPattern, setIsNumberValueCorrect, value);
   };
 
   const checkCorrectInputHolder = (value) => { 
@@ -84,10 +82,10 @@ const useApiCard = () => {
 
   const checkCorrectInputExpires = (value) => { 
     const holderOnlyNumberSlashPattern = /^[0-9/]*$/;
-    checRegularAddStyle(holderOnlyNumberSlashPattern, setIsExpiresValueCorrect, value);
+    checkRegularAddStyle(holderOnlyNumberSlashPattern, setIsExpiresValueCorrect, value);
   };
 
-  const checRegularAddStyle = (regular, setStyle, value) => {
+  const checkRegularAddStyle = (regular, setStyle, value) => {
     setStyle(!regular.test(value));
   }
 
@@ -100,9 +98,8 @@ const useApiCard = () => {
     holderCardValue,
     renderExpires,
     expiresCardValue,
-    saveCardNumber,
     isHolderValueCorrect,
-    isExpiresrValueCorrect,
+    isExpiresValueCorrect,
     isNumberValueCorrect,
   ];
 };

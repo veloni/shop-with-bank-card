@@ -23,6 +23,15 @@
   outline: none;
 }
 
-.card-input-incorect-value {
+.card-input-incorect-value-number-holder {
+  padding-left: 10px;
   border: 2px solid red;
+  outline: none;
+}
+
+.card-input-incorect-expires {
+  width: 77px;
+  border: 2px solid red;
+  padding-left: 10px;
+  outline: none;
 }

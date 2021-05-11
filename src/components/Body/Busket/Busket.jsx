@@ -18,9 +18,8 @@ const Busket = ({
   holderCardValue,
   renderExpires,
   expiresCardValue,
-  saveCardNumber,
   isHolderValueCorrect,
-  isExpiresrValueCorrect,
+  isExpiresValueCorrect,
   isNumberValueCorrect,
 }) => (
   <div className="busket-wrapper">
@@ -33,9 +32,8 @@ const Busket = ({
       holderCardValue={holderCardValue}
       renderExpires={renderExpires}
       expiresCardValue={expiresCardValue}
-      saveCardNumber={saveCardNumber}
       isHolderValueCorrect={isHolderValueCorrect}
-      isExpiresrValueCorrect={isExpiresrValueCorrect}
+      isExpiresValueCorrect={isExpiresValueCorrect}
       isNumberValueCorrect={isNumberValueCorrect}
     />
     <div className="busket-items-wrapper">

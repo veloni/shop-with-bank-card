@@ -37,9 +37,8 @@ const Body = () => {
     holderCardValue,
     renderExpires,
     expiresCardValue,
-    saveCardNumber,
     isHolderValueCorrect,
-    isExpiresrValueCorrect,
+    isExpiresValueCorrect,
     isNumberValueCorrect,
   ] = useApiCard();
 
@@ -62,9 +61,8 @@ const Body = () => {
         holderCardValue={holderCardValue}
         renderExpires={renderExpires}
         expiresCardValue={expiresCardValue}
-        saveCardNumber={saveCardNumber}
         isHolderValueCorrect={isHolderValueCorrect}
-        isExpiresrValueCorrect={isExpiresrValueCorrect}
+        isExpiresValueCorrect={isExpiresValueCorrect}
         isNumberValueCorrect={isNumberValueCorrect}
       />}
       <img 

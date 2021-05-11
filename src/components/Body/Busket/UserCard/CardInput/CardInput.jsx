@@ -3,15 +3,15 @@ import React from 'react';
 import './CardInput.scss';
 
 const CardInput = ({
+  cardNumber,
   refCardNumberInput,
   giveDataCard,
   renderName,
   renderExpires,
-  saveCardNumber,
   holderCardValue,
   expiresCardValue,
   isHolderValueCorrect,
-  isExpiresrValueCorrect,
+  isExpiresValueCorrect,
   isNumberValueCorrect,
 }) => (
   <div>
@@ -20,10 +20,10 @@ const CardInput = ({
         Card number
       </span>
       <input
-        className={isNumberValueCorrect ? "card-input-incorect-value card-input-number-holder" : "card-input-number-holder"}
+        className={isNumberValueCorrect ? "card-input-incorect-value-number-holder" : "card-input-number-holder"}
         type="text"
         maxLength="16"
-        defaultValue={saveCardNumber} 
+        defaultValue={cardNumber} 
         onChange={(e) => giveDataCard(e.target.value)}
         ref={refCardNumberInput}
       />
@@ -34,7 +34,7 @@ const CardInput = ({
         Cart holder
       </span>
       <input  
-        className={isHolderValueCorrect ? "card-input-incorect-value card-input-number-holder" : "card-input-number-holder"}
+        className={isHolderValueCorrect ? "card-input-incorect-value-number-holder" : "card-input-number-holder"}
         type="text"
         maxLength="35"
         defaultValue={holderCardValue} 
@@ -46,7 +46,7 @@ const CardInput = ({
       <div className="cards-input-wrapper">
         Expires
         <input
-          className={isExpiresrValueCorrect ? "card-input-incorect-value card-expires-cvv-input" : 'card-expires-cvv-input'}
+          className={isExpiresValueCorrect ? "card-input-incorect-expires" : 'card-expires-cvv-input'}
           value={expiresCardValue} 
           onChange={(e) => renderExpires(e.target.value)}
           maxLength="5"

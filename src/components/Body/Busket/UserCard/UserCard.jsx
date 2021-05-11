@@ -14,9 +14,8 @@ const UserCard = ({
   holderCardValue,
   renderExpires,
   expiresCardValue,
-  saveCardNumber,
   isHolderValueCorrect,
-  isExpiresrValueCorrect,
+  isExpiresValueCorrect,
   isNumberValueCorrect,
 }) => (
   <div className="card-main-wrapper">
@@ -60,15 +59,15 @@ const UserCard = ({
         </div>
       </div>
       <CardInput
+        cardNumber={cardNumber}
         refCardNumberInput={refCardNumberInput}
         giveDataCard={giveDataCard}
         renderName={renderName}
         renderExpires={renderExpires}
-        saveCardNumber={saveCardNumber}
         holderCardValue={holderCardValue}
         expiresCardValue={expiresCardValue}
         isHolderValueCorrect={isHolderValueCorrect}
-        isExpiresrValueCorrect={isExpiresrValueCorrect}
+        isExpiresValueCorrect={isExpiresValueCorrect}
         isNumberValueCorrect={isNumberValueCorrect}
       />
     </div>
