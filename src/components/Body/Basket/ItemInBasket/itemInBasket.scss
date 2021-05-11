@@ -1,4 +1,4 @@
-.busket-item-wrapper {
+.basket-item-wrapper {
   width: 90%;
   height: 75px;
   margin-top: 30px;
@@ -10,29 +10,29 @@
   background-color: whitesmoke;
 }
 
-.busket-quanity-price-wrapper {
+.basket-quanity-price-wrapper {
   display: flex;
   width: 350px;
   align-items: center;
   justify-content: space-between;
 }
 
-.busket-product-name {
+.basket-product-name {
   padding-left: 25px;
   font-size: 20px;
 }
 
-.busket-item-price-end {
+.basket-item-price-end {
   width: 100px;
   font-size: 20px;
 } 
 
-.busket-item-quanity {
+.basket-item-quanity {
   width: 85px;
   border: 2px solid black;
 }
 
-.busket-item-change-quanity {
+.basket-item-change-quanity {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -41,22 +41,22 @@
   font-size: 25px;
 }
 
-.busket-item-icon-add-quanity {
+.basket-item-icon-add-quanity {
   font-size: 27px;
   cursor: pointer;
 }
 
-.busket-item-icon-add-quanity:hover {
+.basket-item-icon-add-quanity:hover {
   color: green;
 }
 
-.busket-item-icon-delete {
+.basket-item-icon-delete {
   color: red;
   font-size: 27px;
   cursor: pointer;
 }
 
-.busket-sum-buy-wrapper {
+.basket-sum-buy-wrapper {
   width: 90%;
   height: 70px;
   display: flex;
@@ -64,7 +64,7 @@
   align-items: center;
 }
 
-.busket-button-buyr {
+.basket-button-buyr {
   height: 50px;
   width: 150px;
   font-size: 17px;

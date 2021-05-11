@@ -1,16 +1,14 @@
 import React from 'react';
 
-/* import PropTypes from 'prop-types'; */
-
 import ProductListing from './ProductListing/ProductListing';
-import Busket from './Busket/Busket';
+import Basket from './Basket/Basket';
 
 import useLoadData from '../../hooks/useLoadData';
-import useOpenBusket from '../../hooks/useOpenBusket';
-import useBusket from '../../hooks/useBusket';
+import useOpenBasket from '../../hooks/useOpenBasket';
+import useBasket from '../../hooks/useBasket';
 import useApiCard from '../../hooks/useApiCard';
 
-import busketIcon from './img/busket.png';
+import basketIcon from './img/basket.svg';
 
 import './Body.scss';
 
@@ -18,20 +16,19 @@ const Body = () => {
   const [dataProducts] = useLoadData();
 
   const [
-    isOpenBusket,
-    openCloseBusket,
-  ] = useOpenBusket();
+    isOpenBasket,
+    openCloseBasket,
+  ] = useOpenBasket();
 
   const [
     endPrice,
     addItemInBasket,
-    arrayItemBusket,
+    arrayItemBasket,
     changeQuanityProduct,
     deleteProduct,
-  ] = useBusket();
+  ] = useBasket();
 
   const [
-    refCardNumberInput,
     giveDataCard,
     dataCardApi,
     renderName,
@@ -46,32 +43,31 @@ const Body = () => {
 
   return (
     <div className="body-wrapper">
-      {isOpenBusket && <ProductListing
+      {isOpenBasket && <ProductListing
         dataProducts={dataProducts}
         addItemInBasket={addItemInBasket}
       />}
-      {!isOpenBusket && <Busket
+      {!isOpenBasket && <Basket
         endPrice={endPrice}
-        arrayItemBusket={arrayItemBusket}
-        changeQuanityProduct={changeQuanityProduct}
-        deleteProduct={deleteProduct} 
-        refCardNumberInput={refCardNumberInput}
-        giveDataCard={giveDataCard}
-        dataCardApi={dataCardApi}
-        renderName={renderName}
-        cardNumber={cardNumber}
         holderCardValue={holderCardValue}
-        renderExpires={renderExpires}
         expiresCardValue={expiresCardValue}
         isHolderValueCorrect={isHolderValueCorrect}
         isExpiresValueCorrect={isExpiresValueCorrect}
         isNumberValueCorrect={isNumberValueCorrect}
-      />}
+        arrayItemBasket={arrayItemBasket}
+        cardNumber={cardNumber}
+        dataCardApi={dataCardApi}
+        giveDataCard={giveDataCard}
+        deleteProduct={deleteProduct}
+        renderName={renderName}
+        renderExpires={renderExpires}
+        changeQuanityProduct={changeQuanityProduct}
+        />}
       <img 
-        alt="icon busket"
-        src={busketIcon}
-        className="busket-icon"
-        onClick={() => openCloseBusket()}
+        alt="icon basket"
+        src={basketIcon}
+        className="basket-icon"
+        onClick={() => openCloseBasket()}
       />
     </div>
   );

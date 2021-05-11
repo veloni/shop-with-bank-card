@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-const useBusket = () => {
-  const [arrayItemBusket, setArrayItemBusket] = useState([]);
+const useBasket = () => {
+  const [arrayItemBasket, setArrayItemBasket] = useState([]);
   const [endPrice, setEndPrice] = useState(0);
 
   const addItemInBasket = (item) => {
@@ -10,18 +10,18 @@ const useBusket = () => {
     item.quanity = 1;
     item.deleted = false;
 
-    if (arrayItemBusket.includes(item)) {return;}
+    if (arrayItemBasket.includes(item)) {return;}
 
-    setArrayItemBusket([...arrayItemBusket, item]);
+    setArrayItemBasket([...arrayItemBasket, item]);
     setEndPrice(endPrice + item.productPrice * item.quanity);
   };
 
   const changeQuanityProduct = (element, sign) => {
-    const newArray = arrayItemBusket.map((item) => {
+    const newArray = arrayItemBasket.map((item) => {
       if (item.quanity === 1 && sign === -1) {
         return item;
       }
-      
+
       if (element.id === item.id) {
         item.quanity = item.quanity + 1 * sign;
         setEndPrice(endPrice + sign * item.productPrice);
@@ -31,28 +31,31 @@ const useBusket = () => {
       return item;
     });
 
-    setArrayItemBusket([...newArray]);
+    setArrayItemBasket([...newArray]);
   };
 
   const deleteProduct = (element) => {
-    const newArray = arrayItemBusket.map((item) => {
+    const newArray = arrayItemBasket.map((item) => {
       if (element.id === item.id) {
         setEndPrice(endPrice - item.productPrice * item.quanity);
+
+        item.quanity = 1;
         item.deleted = true;
+
         return item;
       }
       return item;
     });
-    setArrayItemBusket([...newArray]);
+    setArrayItemBasket([...newArray]);
   };
 
   return [
     endPrice,
     addItemInBasket,
-    arrayItemBusket,
+    arrayItemBasket,
     changeQuanityProduct,
     deleteProduct,
   ];
 };
 
-export default useBusket;
+export default useBasket;

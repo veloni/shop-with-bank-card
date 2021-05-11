@@ -1,10 +1,8 @@
 import axios from 'axios';
 
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 
 const useApiCard = () => {
-  const refCardNumberInput = useRef();
-
   const [dataCardApi, setDataCardApi] = useState({});
 
   const [cardNumber, setCardNumber] = useState([]);
@@ -19,8 +17,6 @@ const useApiCard = () => {
   const [isExpiresValueCorrect, setIsExpiresValueCorrect] = useState(false);
    
   const giveDataCard = (value) => {
-    if (value.length > 16) {return;}
-
     renderCardNumber(value);
 
     const url = `https://api.cardinfo.online?input=${value}&apiKey=59ee27aad35c6ce4b937299a8aacd32b`;
@@ -34,7 +30,7 @@ const useApiCard = () => {
     let stepStringNumber = 0;
     const quantitySpan = 4;
     const everyFour = Math.ceil(value.length / quantitySpan);
- 
+
     const arrayCardValue = [...Array(everyFour)].map(() => {
       const item = value.substring(stepStringNumber, quantitySpan + stepStringNumber);
       stepStringNumber += quantitySpan;
@@ -76,10 +72,15 @@ const useApiCard = () => {
   };
 
   const checkCorrectInputHolder = (value) => {
+    if (value.length === 0) {
+      setIsHolderValueCorrect(!!value.length);
+      return;
+    }
+
     const holderOnlyLatinPattern = /^[a-zA-Z ]+$/;
-    const holderOnlyTwoWordsPattern = /\w+\s+\w+/;
+    const holderOnlyTwoWordsPattern = /\w+\s+\w+\s+\w/;
     const checkCorrectHolder = !holderOnlyLatinPattern.test(value) || holderOnlyTwoWordsPattern.test(value);
-    
+
     setIsHolderValueCorrect(checkCorrectHolder);
   };
 
@@ -93,7 +94,6 @@ const useApiCard = () => {
   }
 
   return [
-    refCardNumberInput,
     giveDataCard,
     dataCardApi,
     renderName,

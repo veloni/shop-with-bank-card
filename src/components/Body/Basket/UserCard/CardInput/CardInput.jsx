@@ -5,18 +5,17 @@ import './CardInput.scss';
 
 const CardInput = ({
   cardNumber,
-  refCardNumberInput,
-  giveDataCard,
-  renderName,
-  renderExpires,
   holderCardValue,
   expiresCardValue,
   isHolderValueCorrect,
   isExpiresValueCorrect,
   isNumberValueCorrect,
+  giveDataCard,
+  renderName,
+  renderExpires,
 }) => (
   <div>
-    <div className="cards-input-wrapper">
+    <div className="card-input-wrapper">
       <span>
         Card number
       </span>
@@ -26,35 +25,34 @@ const CardInput = ({
         maxLength="16"
         defaultValue={cardNumber} 
         onChange={(e) => giveDataCard(e.target.value)}
-        ref={refCardNumberInput}
       />
     </div>
  
-    <div className="cards-input-wrapper">
+    <div className="card-input-wrapper">
       <span>
         Cart holder
       </span>
       <input  
         className={isHolderValueCorrect ? "card-input-incorrect-value-number-holder" : "card-input-number-holder"}
         type="text"
-        maxLength="35"
+        maxLength="30"
         defaultValue={holderCardValue} 
         onChange={(e) => renderName(e.target.value)}
       />
     </div>
 
-    <div className="card-input-expores-cvv-wrapper">
-      <div className="cards-input-wrapper">
+    <div className="card-input-expires-cvv-wrapper">
+      <div className="card-input-wrapper">
         Expires
         <input
           className={isExpiresValueCorrect ? "card-input-incorrect-expires" : 'card-expires-cvv-input'}
+          maxLength="5"
           value={expiresCardValue} 
           onChange={(e) => renderExpires(e.target.value)}
-          maxLength="5"
           placeholder="MM/YY"
         />
       </div>
-      <div className="cards-input-wrapper">
+      <div className="card-input-wrapper">
         CVV
         <input
           className="card-expires-cvv-input"
@@ -74,8 +72,6 @@ CardInput.propTypes = {
   isHolderValueCorrect: PropTypes.bool.isRequired,
   isExpiresValueCorrect: PropTypes.bool.isRequired,
   isNumberValueCorrect: PropTypes.bool.isRequired,
-
-  refCardNumberInput: PropTypes.object.isRequired,
 
   giveDataCard: PropTypes.func.isRequired,
   renderName: PropTypes.func.isRequired,

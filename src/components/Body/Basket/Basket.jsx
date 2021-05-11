@@ -1,56 +1,54 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import ItemInBusket from './ItemInBusket/itemInBusket';
+import ItemInBasket from './ItemInBasket/itemInBasket';
 import UserCard from './UserCard/UserCard'
 
-import './Busket.scss';
+import './Basket.scss';
 
-const Busket = ({
+const Basket = ({
   endPrice,
-  arrayItemBusket,
-  changeQuanityProduct,
-  deleteProduct,
-  refCardNumberInput,
-  giveDataCard,
-  dataCardApi,
-  renderName,
-  cardNumber,
   holderCardValue,
-  renderExpires,
   expiresCardValue,
   isHolderValueCorrect,
   isExpiresValueCorrect,
   isNumberValueCorrect,
+  arrayItemBasket,
+  cardNumber,
+  dataCardApi,
+  giveDataCard,
+  deleteProduct,
+  renderName,
+  renderExpires,
+  changeQuanityProduct,
 }) => (
-  <div className="busket-wrapper">
+  <div className="basket-wrapper">
     <UserCard
-      refCardNumberInput={refCardNumberInput}
-      giveDataCard={giveDataCard}
-      dataCardApi={dataCardApi}
-      renderName={renderName}
-      cardNumber={cardNumber}
       holderCardValue={holderCardValue}
-      renderExpires={renderExpires}
       expiresCardValue={expiresCardValue}
       isHolderValueCorrect={isHolderValueCorrect}
       isExpiresValueCorrect={isExpiresValueCorrect}
       isNumberValueCorrect={isNumberValueCorrect}
+      dataCardApi={dataCardApi}
+      cardNumber={cardNumber}
+      giveDataCard={giveDataCard}
+      renderName={renderName}
+      renderExpires={renderExpires}
     />
-    <div className="busket-items-wrapper">
-      {arrayItemBusket.map((item, index) => 
-        <ItemInBusket
+    <div className="basket-items-wrapper">
+      {arrayItemBasket.map((item, index) => 
+        <ItemInBasket
           key={index}
           item={item}
           changeQuanityProduct={changeQuanityProduct}
           deleteProduct={deleteProduct}
         />
       )}
-      <div className="busket-sum-buy-wrapper">
-        <span className="busket-sum-price-text">
+      <div className="basket-sum-buy-wrapper">
+        <span className="basket-sum-price-text">
           {endPrice ? `Sum ${endPrice}$` : "Ничего не добавлено"}
         </span>
-        <button className="busket-button-buyr">
+        <button className="basket-button-buyr">
           BUY
         </button>
       </div>
@@ -58,7 +56,7 @@ const Busket = ({
   </div>
 );
 
-Busket.propTypes = {
+Basket.propTypes = {
   endPrice: PropTypes.number.isRequired,
 
   holderCardValue: PropTypes.string.isRequired,
@@ -68,11 +66,9 @@ Busket.propTypes = {
   isExpiresValueCorrect: PropTypes.bool.isRequired,
   isNumberValueCorrect: PropTypes.bool.isRequired,
 
-  arrayItemBusket: PropTypes.array.isRequired,
+  arrayItemBasket: PropTypes.array.isRequired,
   cardNumber: PropTypes.array.isRequired,
   dataCardApi: PropTypes.object.isRequired,
-
-  refCardNumberInput: PropTypes.any.isRequired,
 
   giveDataCard: PropTypes.func.isRequired,
   deleteProduct: PropTypes.func.isRequired,
@@ -81,4 +77,4 @@ Busket.propTypes = {
   changeQuanityProduct: PropTypes.func.isRequired,
 };
 
-export default Busket;
+export default Basket;

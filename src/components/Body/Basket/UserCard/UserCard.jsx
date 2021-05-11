@@ -7,17 +7,16 @@ import CardInput from './CardInput/CardInput';
 import './UserCard.scss';
 
 const UserCard = ({
-  refCardNumberInput,
-  giveDataCard,
-  dataCardApi,
-  renderName,
-  cardNumber,
   holderCardValue,
-  renderExpires,
   expiresCardValue,
   isHolderValueCorrect,
   isExpiresValueCorrect,
   isNumberValueCorrect,
+  dataCardApi,
+  cardNumber,
+  giveDataCard,
+  renderName,
+  renderExpires,
 }) => (
   <div className="card-main-wrapper">
     <div className="card-box-wrapper">
@@ -61,7 +60,6 @@ const UserCard = ({
       </div>
       <CardInput
         cardNumber={cardNumber}
-        refCardNumberInput={refCardNumberInput}
         giveDataCard={giveDataCard}
         renderName={renderName}
         renderExpires={renderExpires}
@@ -86,8 +84,6 @@ UserCard.propTypes = {
   dataCardApi: PropTypes.object.isRequired,
   
   cardNumber: PropTypes.array.isRequired,
-
-  refCardNumberInput: PropTypes.any.isRequired,
 
   giveDataCard: PropTypes.func.isRequired,
   renderName: PropTypes.func.isRequired,
