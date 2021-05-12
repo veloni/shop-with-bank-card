@@ -8,7 +8,6 @@ const ItemInBasket = ({
   changeQuanityProduct,
   deleteProduct,
 }) => (
-
   !item.deleted && <div className="basket-item-wrapper">
     <span
       className="basket-product-name"

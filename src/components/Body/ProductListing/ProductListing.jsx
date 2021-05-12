@@ -8,7 +8,6 @@ import './ProductListing.scss';
 const ProductListing = ({
   dataProducts, 
   addItemInBasket,
-
 }) => (
   <main className="main-product-listing-wrapper">
     {dataProducts.map((item, index) => (
@@ -23,7 +22,6 @@ const ProductListing = ({
 
 ProductListing.propTypes = {
   dataProducts: PropTypes.array.isRequired,
-
   addItemInBasket: PropTypes.func.isRequired,
 };
 

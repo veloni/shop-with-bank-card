@@ -36,14 +36,14 @@ const Basket = ({
       renderExpires={renderExpires}
     />
     <div className="basket-items-wrapper">
-      {arrayItemBasket.map((item, index) => 
+      {arrayItemBasket.map((item, index) => (
         <ItemInBasket
           key={index}
           item={item}
           changeQuanityProduct={changeQuanityProduct}
           deleteProduct={deleteProduct}
         />
-      )}
+      ))}
       <div className="basket-sum-buy-wrapper">
         <span className="basket-sum-price-text">
           {endPrice ? `Sum ${endPrice}$` : "Ничего не добавлено"}
