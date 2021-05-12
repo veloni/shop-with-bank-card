@@ -36,7 +36,7 @@ const CardInput = ({
         className={isHolderValueCorrect ? "card-input-incorrect-value-number-holder" : "card-input-number-holder"}
         type="text"
         maxLength="30"
-        value={holderCardValue} 
+        defaultValue={holderCardValue} 
         onChange={(e) => renderName(e.target.value)}
       />
     </div>
