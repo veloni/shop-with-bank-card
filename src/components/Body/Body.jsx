@@ -62,7 +62,7 @@ const Body = () => {
         renderName={renderName}
         renderExpires={renderExpires}
         changeQuanityProduct={changeQuanityProduct}
-        />}
+      />}
       <img 
         alt="icon basket"
         src={basketIcon}

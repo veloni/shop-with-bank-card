@@ -41,6 +41,7 @@
 .card-holder-wrapper {
   padding-left: 15px;
   width: 350px;
+  height: 50px;
   display: flex;
   flex-direction: column;
   text-align: left;
@@ -83,6 +84,7 @@
 }
 
 .card-logo-brand-wrapper {
+  height: 100px;
   display: flex;
   justify-content: space-between;
   align-items: center;

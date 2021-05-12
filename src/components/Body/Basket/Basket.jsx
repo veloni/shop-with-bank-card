@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import ItemInBasket from './ItemInBasket/itemInBasket';
-import UserCard from './UserCard/UserCard'
+import UserCard from './UserCard/UserCard';
 
 import './Basket.scss';
 

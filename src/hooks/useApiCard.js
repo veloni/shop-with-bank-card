@@ -15,7 +15,7 @@ const useApiCard = () => {
   const [isNumberValueCorrect, setIsNumberValueCorrect] = useState(false);
   const [isHolderValueCorrect, setIsHolderValueCorrect] = useState(false);
   const [isExpiresValueCorrect, setIsExpiresValueCorrect] = useState(false);
-   
+
   const giveDataCard = (value) => {
     renderCardNumber(value);
 
@@ -43,7 +43,7 @@ const useApiCard = () => {
   const renderExpires = (value) => {
     let newValue = value;
 
-    const checkValueLength = (value.length === 2);
+    const checkValueLength = value.length === 2;
 
     if (checkValueLength) {
       newValue = giveValueExpires(value);
@@ -59,7 +59,7 @@ const useApiCard = () => {
     const resultValue = expiresCheckSlash ? `${value}/` : value.slice(0, -1);
 
     return resultValue;
-  }
+  };
 
   const renderName = (value) => {
     setHolderCardValue(value);
@@ -91,7 +91,7 @@ const useApiCard = () => {
 
   const checkRegularAddStyle = (regular, setStyle, value) => {
     setStyle(!regular.test(value));
-  }
+  };
 
   return [
     giveDataCard,
